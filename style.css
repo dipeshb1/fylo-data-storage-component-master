@@ -1,0 +1,203 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
+:root {
+  --color-pale-blue: hsl(243, 100%, 93%);
+  --color-grayish-blue: hsl(229, 24%, 82%);
+  --color-dark-blue: hsl(228, 56%, 26%);
+  --color-very-dark-blue: hsl(229, 57%, 11%);
+  --gradient-from: hsl(6, 100%, 80%);
+  --gradient-to: hsl(335, 100%, 65%);
+}
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Raleway";
+  background-color: var(--color-very-dark-blue);
+  background-image: url(./images/bg-desktop.png);
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: contain;
+  display: grid;
+  height: 100dvh;
+  gap: 3rem;
+  place-items: center;
+}
+
+main {
+  flex-direction: row;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 70%;
+  gap: 3rem;
+}
+.left {
+  background-color: var(--color-dark-blue);
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  border-radius: 1rem 100px 1rem 1rem;
+  width: 35%;
+}
+.logo {
+  width: 15rem;
+}
+
+.left-icons img {
+  background-color: var(--color-very-dark-blue);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  height: 5rem;
+  width: 5rem;
+  margin-right: 1rem;
+}
+
+.right {
+  display: flex;
+  background-color: var(--color-dark-blue);
+  padding: 2rem 3rem;
+  flex-direction: column;
+  color: var(--color-grayish-blue);
+  font-size: 1.4rem;
+  border-radius: 1rem;
+  width: 55%;
+  position: relative;
+}
+
+.right > p span {
+  font-weight: 700;
+  color: var(--color-pale-blue);
+  margin-top: 3rem;
+}
+
+.progress-bar {
+  border-radius: 35px;
+  height: 1.8rem;
+  position: relative;
+  background-color: var(--color-very-dark-blue);
+  width: 100%;
+}
+.progress-bar::before {
+  content: "";
+  border-radius: 35px;
+  height: 1.5rem;
+  position: relative;
+  background-image: linear-gradient(
+    90deg,
+    var(--gradient-from),
+    var(--gradient-to)
+  );
+  width: 70%;
+  position: absolute;
+  top: 1.5px;
+  left: 2px;
+}
+.progress-bar::after {
+  content: "";
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 50%;
+  background-color: #fff;
+  position: absolute;
+  top: 3.4px;
+  left: 67.5%;
+}
+.indicator {
+  display: flex;
+  justify-content: space-between;
+  color: var(--color-pale-blue);
+  margin: 1rem 0;
+}
+.right-text {
+  margin: 2rem 0;
+  line-height: 1;
+  letter-spacing: 1px;
+}
+.data-bubble {
+  background-color: #fff;
+  border-radius: 1rem 1rem 0 1rem;
+  position: absolute;
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  color: var(--color-dark-blue);
+  font-size: 1rem;
+  right: 3rem;
+  top: -2rem;
+}
+
+.data-bubble > p span {
+  font-size: 3rem;
+  font-weight: 700;
+  color: black;
+}
+
+.data-bubble::before {
+  position: absolute;
+  content: "";
+  bottom: -2rem;
+  right: 0;
+  clip-path: polygon(100% 0, 0 0, 100% 100%);
+  background-color: #fff;
+  height: 2rem;
+  width: 2rem;
+}
+
+.data-bubble__text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+@media (max-width: 700px) {
+  body {
+    background-size: cover;
+    background-image: url("./images/bg-mobile.png");
+  }
+  main {
+    flex-direction: column;
+    width: 85%;
+  }
+  .left {
+    width: 100%;
+  }
+  .right {
+    width: 100%;
+  }
+  .right-text {
+    text-align: center;
+  }
+  .data-bubble {
+    top: 12rem;
+    font-size: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 1rem;
+    height: 6rem;
+    width: 15rem;
+  }
+
+  .data-bubble > p span {
+    font-size: 3rem;
+    font-weight: 700;
+    color: black;
+  }
+
+  .data-bubble::before {
+    display: none;
+  }
+  .progress-bar::after {
+    left: 67.5%;
+  }
+}
